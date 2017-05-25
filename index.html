@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>增删改查</title>
+    <link rel="stylesheet" href="./cola-ui/semantic.css"/>
+    <link rel="stylesheet" href="./cola-ui/cola.css"/>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./cola-ui/3rd.js"></script>
+    <script src="./cola-ui/semantic.js"></script>
+    <script src="./cola-ui/cola.js"></script>
+    <style>
+        .layer1{
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+<!--<c-progress width="400px" value="{{cV}}" showActivity="false" showProgress="false"></c-progress>
+<c-progress width="400px" value="{{cV}}" class="inline" showProgress="true"></c-progress>
+<c-button click="minus" icon="minus">-->
+
+<!--面包屑-->
+<!--<c-breadcrumb bind="sections" itemClick="itemClick"></c-breadcrumb>-->
+
+<!--评分控件-->
+<!--<c-rating rating="{{lala}}" maxRating="5"></c-rating>-->
+
+<!--下拉框-->
+<!--<c-dropdown c-items="languages" valueProperty="name" textProperty="name"></c-dropdown>-->
+<!--valueProperty:表示下拉框对应的值   textProperty：下拉框显示的文字-->
+
+<!--自定义下拉框-->
+<!--<div id="dropdown"></div>-->
+
+<!--弹出框-->
+<!--<c-button c-onclick="show()" caption="显示"></c-button>
+<c-dialog id="dialog1" width="80%" height="40%">
+    <div class="content"></div>
+    <div class="actions">
+        <c-button caption="取消" click="hide"></c-button>
+        <c-button caption="确认" c-onclick="hide()" class="primary"></c-button>
+    </div>
+</c-dialog>-->
+
+<!--面板控件-->
+<!--<c-panel caption="面板控件">
+    <div class="content">
+        <c-segment height="100px"></c-segment>
+    </div>
+</c-panel>-->
+
+<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--自定义面板-->
+<!--<c-panel caption="面板控件" height="200px">
+    <template name="tools">
+        <div>
+            <c-button caption="添加"></c-button>
+            <c-button caption="保存"></c-button>
+        </div>
+    </template>
+    <div class="content"></div>
+</c-panel>-->
+
+<!--日期选择器-->
+<!--<c-datepicker bind="currentDate" inputType="time"></c-datepicker>
+<span c-bind="formatDate(currentDate,'yyyy-MM-dd')"></span>-->
+
+<!--tab标签页-->
+<!--<c-tab id="tabControl" style="height:100%" direction="left">
+    <nav>
+        <tabs>
+            <tab name="long" caption="龙" class="active" icon="setting"></tab>
+            <tab name="lala" caption="啦啦" closeable="true" icon="dashboard"></tab>
+        </tabs>
+    </nav>
+    <contents>
+        <content name="long" class="active">
+            龙
+        </content>
+        <content name="lala">
+            啦啦
+        </content>
+    </contents>
+</c-tab>-->
+
+<!--进度条-->
+<!--<c-progress width="400px" value="{{cV}}">
+</c-progress>
+<c-progress width="400px" value="{{completeValue}}">
+</c-progress>
+<c-progress class="warning" width="400px" value="{{completeValue}}">
+</c-progress>
+<c-progress width="400px" value="{{exceptionValue}}">
+</c-progress>-->
+
+<!--滑动分隔面板-->
+<!--<c-split-pane direction="left" position="60%">
+    <div class="pane"></div>
+    <div class="pane">
+        <c-split-pane direction="top" position="50%">
+            <div class="pane"></div>
+            <div class="pane"></div>
+        </c-split-pane>
+    </div>
+</c-split-pane>-->
+
+<!--层控件-->
+<!--<c-button caption="显示" click="show"></c-button>
+<c-layer id="layer1">
+    <c-button caption="隐藏" click="hide"></c-button>
+</c-layer>-->
+
+<!--按钮选择器-->
+<!--<c-select-button class="mini" c-items="items" c-bind="prop" valueProperty="key" textProperty="key"></c-select-button>
+<c-input c-bind="prop"></c-input>-->
+
+<!--开关控件-->
+<c-toggle bind="cValue"></c-toggle>
+<span c-bind="cValue"></span>
+
+<script>
+    cola(function (model) {
+        /*model.set({
+         cV:50,
+         total:100
+         })*/
+
+        //面包屑
+        /*model.set("sections",[
+         {text:"首页",href:"http://cola-ui.com"},
+         {text:"组件",href:"http://cola-ui.com/docs"},
+         {text:"按钮",href:"http://cola-ui.com/docs/button"}
+         ]);
+         model.action({
+         itemClick:function(self,arg){
+         model.get("sections").setCurrent(self.item);
+         }
+         })*/
+
+        //平分控件
+        /*model.set("lala",2);*/
+
+        //下拉框
+        /*model.set("languages",[
+         {name:"javaScript"},
+         {name:"C"},
+         {name:"C++"},
+         {name:"Java"},
+         {name:"php"},
+         {name:"node"},
+         {name:"vue"}
+         ]);*/
+
+        //自定义下拉框
+        /*model.widgetConfig({
+         dropdown:{
+         //$type:定义控件类型
+         $type:"customDropdown",
+         valueProperty:"name",
+         dropdownWidth:"300px",
+         content:{
+         $type:"table",
+         bind:"language in languages",
+         columns:[{bind:".name"},{bind:".desc"}],
+         //当下拉框展开时点击内容时自动关闭下拉框
+         itemClick:function(self,arg){
+         //findDropDown:获取下拉框
+         var dropdown = cola.findDropDown(self);
+         if(dropdown) dropdown.close(arg.item);
+         }
+         }
+         }
+         });
+         model.set("languages",[
+         {name:"javaScript"},
+         {name:"C"},
+         {name:"C++"},
+         {name:"Java"},
+         {name:"php"},
+         {name:"node"},
+         {name:"vue"}
+         ]);*/
+
+        //弹出框
+        /*model.action({
+         show: function () {
+         cola.widget("dialog1").show();
+         },
+         hide: function () {
+         cola.widget("dialog1").hide();
+         }
+         })*/
+
+        //面板控件
+        /*model.action({
+         show:function(){
+         cola.widget("layer1").show();
+         },
+         hide:function(){
+         cola.widget("layer1").hide();
+         }
+         })*/
+
+        //日期选择器
+        /*model.set({
+            currentDate:new Date()
+        });*/
+
+        //进度条
+        /*model.set({
+            cV: 50,
+            total: 100,
+            completeValue: 100,
+            exceptionValue: 120
+        })*/
+
+        //层控件
+        /*model.action({
+            show:function(){
+                cola.widget("layer1").show();
+            },
+            hide:function(){
+                cola.widget("layer1").hide();
+            }
+        })*/
+
+        //按钮选择器
+        /*model.set("items",[
+            {key:"apple",value:"苹果"},
+            {key:"mi",value:"小米"},
+            {key:"huawei",value:"华为"}
+        ])*/
+
+        //开关控件
+        model.set({
+            cValue:true
+        })
+    })
+</script>
+</body>
+</html>
